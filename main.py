@@ -3,11 +3,11 @@ import numpy as np
 import face_recognition
 
 # This will be the image going to train
-imgSasa = face_recognition.load_image_file('IMG/Sasa_1.jpeg')
+imgSasa = face_recognition.load_image_file('IMG/IMG/Sasa_1.jpeg')
 imgSasa = cv2.cvtColor(imgSasa, cv2.COLOR_BGR2RGB)
 
 # This is the image going to test
-imgTest = face_recognition.load_image_file('IMG/Sasa_3.jpeg')
+imgTest = face_recognition.load_image_file('IMG/IMG/Sasa_3.jpeg')
 imgTest = cv2.cvtColor(imgTest, cv2.COLOR_BGR2RGB)
 
 faceLoc = face_recognition.face_locations(imgSasa)[0]
