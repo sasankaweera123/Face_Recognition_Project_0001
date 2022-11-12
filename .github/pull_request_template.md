@@ -12,7 +12,7 @@
 # CheckList
 - [ ] Tests
 - [ ] Translations
-- [ ] Docuementation
+- [ ] Documentation
 
 # Screenshots
 
