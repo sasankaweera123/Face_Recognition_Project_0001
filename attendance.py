@@ -3,12 +3,6 @@ import numpy as np
 import face_recognition
 import os
 
-path = 'IMG/Attendence'
-images = []
-classNames = []
-myList = os.listdir(path)
-print(myList)
-
 
 def get_classnames():
     for cl in myList:
@@ -16,11 +10,6 @@ def get_classnames():
         images.append(current_image)
         classNames.append(os.path.splitext(cl)[0])
     return images, classNames
-
-
-images, classNames = get_classnames()
-
-print(classNames)
 
 
 def find_name(index, image):
@@ -46,14 +35,8 @@ def find_encodings(image):
     return encode_list
 
 
-encodeListKnown = find_encodings(images)
-# print(len(encodeListKnown))
-
-cap = cv2.VideoCapture(0)
-
-
-def get_c_ec_frame():
-    success, img = cap.read()
+def get_c_ec_frame(capital):
+    success, img = capital.read()
     imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
     imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
 
@@ -63,17 +46,32 @@ def get_c_ec_frame():
     return img,imgS, faceCurrentFrame, encodeCurrentFrame
 
 
-while True:
+# main program starts here
+if __name__ == "__main__":
+    path = 'IMG/Attendence'
+    images = []
+    classNames = []
+    myList = os.listdir(path)
+    print(myList)
+    images, classNames = get_classnames()
+    print(classNames)
+    encodeListKnown = find_encodings(images)
+    # print(len(encodeListKnown))
+    cap = cv2.VideoCapture(0)
 
-    img, imgS, faceCurrentFrame, encodeCurrentFrame = get_c_ec_frame()
+    while True:
 
-    for encodeFace, faceLoc in zip(encodeCurrentFrame, faceCurrentFrame):
-        matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
-        faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
-        # print(faceDis)
-        matchIndex = np.argmin(faceDis)
+        img, imgS, faceCurrentFrame, encodeCurrentFrame = get_c_ec_frame(cap)
 
-        img = find_name(matchIndex,img)
+        for encodeFace, faceLoc in zip(encodeCurrentFrame, faceCurrentFrame):
+            matches = face_recognition.compare_faces(encodeListKnown, encodeFace)
+            faceDis = face_recognition.face_distance(encodeListKnown, encodeFace)
+            # print(faceDis)
+            matchIndex = np.argmin(faceDis)
 
-    cv2.imshow('Webcam', img)
-    cv2.waitKey(1)
+            img = find_name(matchIndex, img)
+
+        cv2.imshow('Webcam', img)
+        cv2.waitKey(1)
+
+
