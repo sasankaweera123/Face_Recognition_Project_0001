@@ -1,6 +1,15 @@
 # Face_Recognition_Project
 
+<<<<<<< Updated upstream
 python based face recognition Project
+=======
+A face recognition project created using Python involves using computer vision techniques and machine learning algorithms to automatically detect and identify human faces in images or videos.<br>
+
+<img src ="IMG/1.png" width="500px">
+<br>
+<img src="IMG/2.png" width="300px">
+<br>
+>>>>>>> Stashed changes
 
 # Packages
 
@@ -18,3 +27,9 @@ python based face recognition Project
 
 `pip install {Package}`
 
+<<<<<<< Updated upstream
+=======
+## License
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+>>>>>>> Stashed changes
