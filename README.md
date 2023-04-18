@@ -1,4 +1,4 @@
-# Face_Recognition_Project 👱🏻‍♀️👱🏼‍♂️
+# Face Recognition Project 0001 👱🏻‍♀️👱🏼‍♂️
 
 A face recognition project created using Python involves using computer vision techniques and machine learning algorithms to automatically detect and identify human faces in images or videos.<br>
 
